@@ -6,7 +6,42 @@
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
-        
+
+        <main class="container">
+            <section class="info-farmacia text-center">
+                <h2>Bienvenido a Farmacia Kikes</h2>
+                <p>Tu mejor opción en medicamentos y salud.</p>
+            </section>
+
+            <section class="video text-center">
+                <h3>Información sobre un medicamento</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/watch?v=PeFX6Ohhna4&ab_channel=AllianceforAgingResearch" 
+                        title="Video sobre medicamento" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </section>
+
+            <section class="formulario">
+                <h3>Quejas y Sugerencias</h3>
+                <form method="post" action="/enviar-queja">
+                    <div>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required/>
+                    </div>
+                    <div>
+                        <label for="correo">Correo Electrónico:</label>
+                        <input type="email" id="correo" name="correo" required/>
+                    </div>
+                    <div>
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+        </main>
+
         <footer th:replace="~{layout/plantilla :: footer}"/>          
     </body>
 </html>

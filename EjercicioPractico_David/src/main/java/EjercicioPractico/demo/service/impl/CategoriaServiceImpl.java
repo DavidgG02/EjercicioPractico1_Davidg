@@ -20,4 +20,20 @@ public class CategoriaServiceImpl implements CategoriaService {
         List<Categoria> lista = categoriaDao.findAll();
         return activos ? lista.stream().filter(Categoria::isActivo).toList() : lista;
     }
+
+    @Override
+    public void save(Categoria categoria) { 
+        categoriaDao.save(categoria);
+    }
+    @Override
+@Transactional
+    public void delete(Long idCategoria){
+             categoriaDao.deleteById(idCategoria);
+}
+@Override
+    @Transactional(readOnly = true)
+    public Categoria getCategoriaById(Long idCategoria) {
+        return categoriaDao.findById(idCategoria).orElse(null); 
+    }
+
 }
